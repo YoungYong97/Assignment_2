@@ -5,16 +5,15 @@ class Bullet
   float theta;
   float size;
   float speed = 1000;
-  float timeToLive;
-  float alive;
+  boolean hit=false;
+
   
-  Bullet(float x, float y, float theta, float size, float timeToLive)
+  Bullet(float x, float y, float theta, float size)
   {
     pos = new PVector(x, y);
-    forward = new PVector(0, 1);
+    forward = new PVector(0, 0);
     this.theta = theta;
-    this.size = size;
-    this.timeToLive = timeToLive;    
+    this.size = size;   
   }
   
   void render()

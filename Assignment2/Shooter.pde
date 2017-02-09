@@ -5,14 +5,16 @@ class Shooter
   float size;
   float radius;
   PShape shape;
-
-
+  int delay;
+  float a;
+  
   Shooter(PVector location, float theta, float size)
   {
     this.location = location;
     this.theta = theta;
     this.size = size;
     radius = size / 2;
+    delay = 5;
     /* }
      
      void draw()
@@ -26,50 +28,65 @@ class Shooter
      strokeWeight(30);
      ellipse(location.x, location.y, 120, 120);
      */
-    create();
+    //create();
   }
 
-  void create()
+  /*void create()
   {
     shape = createShape();
     shape.beginShape();
+    
     shape.stroke(255);
     shape.noFill();
     shape.strokeWeight(2);
-    shape.vertex(-radius, radius);
+    shape.rectMode(CENTER);
+    
+    /*shape.vertex(-radius, radius);
     shape.vertex(0, - radius);
     shape.vertex(radius, radius);
     shape.vertex(0, 0);
+    
+    shape.rect();
+    
     shape.endShape(CLOSE);
-  }
+  }*/
   void render()
   {
+    a = atan2(mouseY-width/2, mouseX-height/2);    
+    
     pushMatrix(); // Stores the current transform
-    translate(location.x, location.y);
+    imageMode(CENTER);
+    translate(location.x  , location.y);
     rotate(theta);    
-    shape(shape, 0, 0);
+    
+    image(img, 0, 0);
     popMatrix(); // Restore the transform
   }
 
 
   void update()
   {
-
+    
     if (checkKey('a'))
      {
-     theta -= 0.1f;
+     theta -= 0.05f;
      }
      if (checkKey('d'))
      {
-     theta += 0.1f;
-     }/*
-    float degree =  2*(PI) / (mouseY / mouseX);
-    theta = atan(degree);*/
+     theta += 0.05f;
+     }
+
 
     if (checkKey(' '))
     {
-      Bullet b = new Bullet(location.x, location.y, theta, 20, 20);
-      bullets.add(b);
+      if(delay <= 0) {
+        Bullet b = new Bullet(location.x, location.y, theta, 20);
+        bullets.add(b);
+        delay = 5;
+      }
+      else {
+        delay--;
+      }
     }
   }
 }
