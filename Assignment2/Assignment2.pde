@@ -1,6 +1,7 @@
 Shooter shooter;
 GameOver death= new GameOver();
 Game game= new Game();
+Menu menu = new Menu();
 ArrayList<Enemy> monsters = new ArrayList<Enemy>();
 ;
 PImage img;
@@ -14,9 +15,7 @@ int lvl = 1;
 
 void setup()
 {
-  //noCursor();
-  //fullScreen();
-  size(1000, 1000);
+  fullScreen();
   cx = width/2;
   cy = height/2;
   frameRate(60);
@@ -64,6 +63,7 @@ void game_state(int state)
   {
     case 0: // Menu
     {
+      menu.display();
       break;
     }
     
@@ -101,8 +101,12 @@ void mouseClicked()
 {
   if(state==0) // menu 
   {
-    
-  }else if(state==3) // Game Over
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.4 -50 && mouseY< height * 0.4+50)
+    {
+      state=1;
+    }
+  }
+  else if(state==3) // Game Over
   {
     if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.8 -50 && mouseY< height * 0.8+50)
     {
@@ -112,7 +116,7 @@ void mouseClicked()
         monsters.remove(e);
         lvl = 1;
       }
-      state=1;
+      state=0;
     }
   }
 }

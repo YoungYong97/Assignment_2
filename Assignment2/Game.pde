@@ -8,12 +8,6 @@ class Game implements Screen
     shooter.update();
     shooter.render();
 
-
-    /*for (Enemy e : monsters)
-     {
-     e.display();
-     e.update();
-     }*/
     if (monsters.size() == 0)
     {
       for (int i=0; i < lvl; i++)
@@ -44,17 +38,20 @@ class Game implements Screen
       Enemy e = monsters.get(index);
       e.display();
       e.update();
-      //for(Enemy e : monsters) {
-      for (Bullet b : bullets) {
-        if (testCollision(e.location, b.pos, e.size)) {
-          if ( e.health > 0)
+      for (Bullet b : bullets) 
+      {
+        if (testCollision(e.location, b.pos, e.size)) 
+        {
+          if ( e.health > 1)
           {
             e.health--;
-          } else
+          } 
+          else
           {
             monsters.remove(e);
           }
           b.hit=true;
+          
         }
       }
     }

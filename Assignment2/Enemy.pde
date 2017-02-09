@@ -8,7 +8,10 @@ class Enemy
   Enemy(PVector location, int health)
   {
     this.location = location;
-    this.health = health;
+    if ( health == 0)
+      this.health = health + 4;
+    else
+      this.health = health;
     
   }
   
@@ -19,22 +22,22 @@ class Enemy
     if( health == 1)
     {
       fill(255, 0, 0);
-      speed = 25;
+      speed = 30;
     }
     else if( health == 2)
     {
       fill(0, 255, 0);
-      speed = 20;
+      speed = 25;
     }
     else if( health == 3)
     {
       fill(0, 0, 255);
-      speed = 15;
+      speed = 20;
     }
     else
     {
       fill(255);
-      speed = 10;
+      speed = 15;
     }
     ellipse(location.x, location.y, size, size);
   }
@@ -43,13 +46,5 @@ class Enemy
   {
     location.x = lerp(location.x, shooter.location.x, speed / 10000);
     location.y = lerp(location.y, shooter.location.y, speed / 10000);
-    
-    for(Bullet b : bullets) 
-    {
-      if (testCollision(this.location, b.pos, this.size)) 
-      {
-        monsters.remove(this);
-      }
-    }
   }
 }

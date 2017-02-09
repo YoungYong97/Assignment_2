@@ -82,7 +82,7 @@ class Shooter
       if(delay <= 0) {
         Bullet b = new Bullet(location.x, location.y, theta, 20);
         bullets.add(b);
-        delay = 5;
+        delay = 8;
       }
       else {
         delay--;
