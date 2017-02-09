@@ -44,7 +44,7 @@ class Enemy
   
   void update()
   {
-    location.x = lerp(location.x, shooter.location.x, speed / 10000);
-    location.y = lerp(location.y, shooter.location.y, speed / 10000);
+    location.x = lerp(location.x, shooter.location.x, speed / 9000);
+    location.y = lerp(location.y, shooter.location.y, speed / 9000);
   }
 }

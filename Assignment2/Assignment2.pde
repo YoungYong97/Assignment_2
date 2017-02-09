@@ -2,16 +2,18 @@ Shooter shooter;
 GameOver death= new GameOver();
 Game game= new Game();
 Menu menu = new Menu();
+Instruction instruct = new Instruction();
 ArrayList<Enemy> monsters = new ArrayList<Enemy>();
 ;
 PImage img;
 float cx, cy;
 int[] heal = {1, 2, 3, 4};
-int state=3;
+int state=0;
 boolean[] keys = new boolean[1000];
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 float time = 1.0f / 60.0f;
 int lvl = 1;
+int score = 0;
 
 void setup()
 {
@@ -75,6 +77,7 @@ void game_state(int state)
     
     case 2: // Credits
     {
+      instruct.display();
       break;
     }
     
@@ -103,7 +106,20 @@ void mouseClicked()
   {
     if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.4 -50 && mouseY< height * 0.4+50)
     {
+      score = 0;
       state=1;
+    }
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.5 -50 && mouseY< height * 0.5+50)
+    {
+      state=2;
+    }
+  }
+  else if(state == 2)
+  {
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.8 -50 && mouseY< height * 0.8+50)
+    {
+      
+      state=0;
     }
   }
   else if(state==3) // Game Over
@@ -116,6 +132,7 @@ void mouseClicked()
         monsters.remove(e);
         lvl = 1;
       }
+      score = 0;
       state=0;
     }
   }

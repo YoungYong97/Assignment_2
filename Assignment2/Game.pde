@@ -45,10 +45,12 @@ class Game implements Screen
           if ( e.health > 1)
           {
             e.health--;
+            score++;
           } 
           else
           {
             monsters.remove(e);
+            score++;
           }
           b.hit=true;
           
