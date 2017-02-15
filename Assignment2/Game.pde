@@ -4,7 +4,6 @@ class Game implements Screen
   {
     background(0);
     stroke(255);
-    //shooter.draw();
     shooter.update();
     shooter.render();
 
@@ -60,10 +59,14 @@ class Game implements Screen
 
     for (int index= monsters.size() - 1; index >=0; index--)
     {
-      if( monsters.get(index).location.x > shooter.location.x - 50 && monsters.get(index).location.x < shooter.location.x + 50 && monsters.get(index).location.y > shooter.location.y - 50 && monsters.get(index).location.y < shooter.location.y + 50)
+      if( monsters.get(index).location.x > shooter.location.x - 70 && monsters.get(index).location.x < shooter.location.x + 70 && monsters.get(index).location.y > shooter.location.y - 70 && monsters.get(index).location.y < shooter.location.y + 70)
       {
         state = 3; // game over
       }
     }
+    textSize(30);
+    fill(255);
+    text("Score = ", width * 0.8, height * 0.9);
+    text(score, width * 0.9, height * 0.9);
   }
 }

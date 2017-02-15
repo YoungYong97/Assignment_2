@@ -7,6 +7,7 @@ class Instruction extends Design implements Screen
     textSize(60);
     textAlign(CENTER);
     fill(255);
+    text("Press SPACEBAR to shoot.", width * 0.5, height * 0.2);
     text("Press A Or D to rotate the turret.", width *0.5, height *0.3);
     textSize(50);
     fill(255, 0, 0);

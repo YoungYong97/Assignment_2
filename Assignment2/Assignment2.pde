@@ -104,19 +104,19 @@ void mouseClicked()
 {
   if(state==0) // menu 
   {
-    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.4 -50 && mouseY< height * 0.4+50)
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 + 50 && mouseY> height *0.5 - 50 && mouseY< height * 0.5 + 50)
     {
       score = 0;
       state=1;
     }
-    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.5 -50 && mouseY< height * 0.5+50)
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 + 50 && mouseY> height *0.7 - 50 && mouseY< height * 0.7 + 50)
     {
       state=2;
     }
   }
   else if(state == 2)
   {
-    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.8 -50 && mouseY< height * 0.8+50)
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 + 50 && mouseY> height *0.8 - 50 && mouseY< height * 0.8 + 50)
     {
       
       state=0;
@@ -124,7 +124,7 @@ void mouseClicked()
   }
   else if(state==3) // Game Over
   {
-    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 +50 && mouseY> height *0.8 -50 && mouseY< height * 0.8+50)
+    if(mouseX > width* 0.5 - 50 && mouseX < width * 0.5 + 50 && mouseY> height *0.8 - 50 && mouseY< height * 0.8 + 50)
     {
       for (int index= monsters.size() - 1; index >=0; index--)
       {
